@@ -1,0 +1,40 @@
+<%- include("../partials/header") %>
+
+<div class="mt-5 pt-3">
+    <h1 style="text-align: center;">
+      Drug Inventory Control
+    </h1>
+    <h3 style="text-align: center;">
+        Add New Drug
+    </h3>
+    
+     <div class="row">
+
+        <div style="width: 30%; margin: 30px auto; ">
+            <form action="/api/products/pharmacy" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="categories" placeholder="Category" >
+                </div>
+                <div class="form-group"> 
+                    <input class="form-control" type="text" name="name" placeholder="Drug" >
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="dosage_type" placeholder="Dosage Type" >
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="dose_quantity" placeholder="Quantity(mg)" >
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="price" placeholder="price" >
+                </div>
+               <div class="form-group" >
+                    <button class="btn btn-lg btn-danger btn-block">Submit</button>
+               </div>
+                </form>
+                <br>
+                <a href="/api/products/pharmacy">All Drugs</a>
+        </div>
+     </div>
+</div>
+
+<%- include("../partials/footer") %>

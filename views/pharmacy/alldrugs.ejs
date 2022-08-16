@@ -1,0 +1,86 @@
+<%- include("../partials/header") %>
+<!-- sidenav -->
+
+<div class="mt-5 pt-3">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6 fw-bold fs-3">Drug Inventory Control</div>
+            <a class="btn btn-primary drgbtn col-md-3 fs-6" href="/api/pharmacy/">Add New Drug</a>
+            <a class="btn btn-primary drgbtn col-md-3 fs-6" href="/api/pharmacy/showpatients"> Patient Database</a>
+      </div>
+      <form class="d-flex ms-auto mt-3">
+        <div class="input-group my-3 my-lg-0 ">
+            <input type="text" class="form-control" placeholder="Search patient id/matric number" aria-label="search patient id" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search-heart"></i></button>
+         </div>
+    </form>
+<table>
+    <tr>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Dosage Type</th>
+      <th>Dosage Quantity</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  
+    <%products.forEach(function(product){%>
+    <tr style="color: black;">
+      <td>
+          <%=product.categories%>
+      </td>
+      <td><%=product.name%></td> 
+      <td><%=product.dosage_type%></td> 
+      <td><%=product.dose_quantity%></td>
+      <td><%=product.price%></td>  
+      <td>
+        <form action="/api/products/<%=product._id%>" method="POST">
+            <button style ="border: none;"
+            ><i class="bi bi-trash"></i>
+            </button>
+        </form>
+        <span data-bs-toggle="modal" data-bs-target="#myModal" style="display:flexbox;">
+            <i class="bi bi-pen"></i>
+     </span>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black;">Edit</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form action="/api/products/<%=product._id%>?_method=PUT" method="POST" style="color: black;">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <input class="form-control" type="text" name="categories" placeholder="Category" value="<%=product.categories%>">
+                              </div>
+                              <div class="form-group">
+                                <label for="dose">Dose</label>
+                                <input class="form-control" type="text" name="name" placeholder="Drug" value="<%=product.name%>">
+                              </div>
+                              <div class="form-group">
+                                <label for="dosage_type">Dose Type</label>
+                                <input class="form-control" type="text" name="dosage_type" placeholder="Dosage Type" value="<%=product.dosage_type%>">
+                              </div>
+                              <div class="form-group">
+                                <label for="dosage_quantity">Dose Quantity</label>
+                                <input class="form-control" type="text" name="dose_quantity" placeholder="Quantity(mg)" value="<%=product.dose_quantity%>">
+                              </div>
+                              <div class="form-group">
+                                <label for="price">Price</label>
+                                <input class="form-control" type="text" name="price" placeholder="price" value="<%=product.price%>">
+                              </div>
+                              </div>
+                              <button class="btn btn-primary mt-3">Submit</button>
+                        </form>
+                    </div>
+      </td>  
+      <tr>
+      <% }); %>
+  </table>
+  </div>
+</main>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,80 @@
+<%- include("../partials/header") %>
+<!-- sidenav -->
+
+
+<div class="mt-5 pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 fw-bold fs-3">DashBoard</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="card text-white bg-primary h-100">
+                    <div class="card-header">
+                        <span><i class="bi bi-clipboard2-heart"></i></span>
+                        Doctors Note</div>
+                    <div class="card-body">
+                      <h5 class="card-title">TEST</h5>
+                      <p class="card-text"><%=laborders.testtype%></p>
+                    </div>
+                  </div>
+            </div>
+            
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Charts
+                    </div>
+                    <div class="card-body">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Analytics
+                    </div>
+                    <div class="card-body">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="container-fluid">
+            <div class="header mt-3">
+                <h2 class="patient">patient.name</h2> 
+             </div>
+             <table>
+             <tr>
+                <th>Test Type</th>
+                <th>userId</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            
+              <%laborders.forEach(function(laborder){%>
+              <tr>
+                <td>
+                   <%=laborders.testtype%>
+                </td>
+                <td>
+                   <%=laborders.userId%>
+                </td>
+                <td>
+                   <%=laborders.labProducts.quantity%>
+                </td>
+                <td><%=laborders.amount%></td> 
+                <tr>
+                <% }); %>
+            </table>
+    </main>
+    </div>
+    
+
+<script src="js/script.js"></script>
+<%- include("../partials/footer") %>

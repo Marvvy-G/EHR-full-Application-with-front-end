@@ -1,0 +1,127 @@
+<%- include("../partials/header") %>
+<!-- sidenav -->
+
+
+<div class="mt-5 pt-3 container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 fw-bold fs-3">DashBoard</div>
+            <div>
+                <ul>
+                    <li><a href="/api/history/show/showpatients">Database</a></li>
+                    <li><a href="/api/history/nurse/<%= patient._id %>">Add Vital</a></li>
+                    <li><a href="">Administer Medication</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Charts
+                    </div>
+                    <div class="card-body">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Analytics
+                    </div>
+                    <div class="card-body">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    </div>
+    
+    <div class="container">
+        <div class="header mt-3">
+            <h2 class="patient"><%=patient.name%></h2> 
+         </div>
+        <table>
+            <tr>
+                <th>Photo</th>
+                <td><img src="data:image/<%=patient.photo%>"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><%=patient.name%></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td><%=patient.age%></td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td><%=patient.number%></td>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <td><%=patient.id%></td>
+            </tr>
+            <tr>
+                <th>BloodGroup</th>
+                <td><%=patient.bloodgroup%></td>
+            </tr>
+            <tr>
+                <th>Genotype</th>
+                <td><%=patient.genotype%></td>
+            </tr>
+            <tr>
+                <th>Underlying Illness</th>
+                <td><%=patient.underlyingillness%></td>
+            </tr>
+            
+        </table>
+        
+
+            
+        </div>
+       
+        <div class="container">
+            <div class="header mt-3">
+                <h2 class="patient">Vitals</h2> 
+             </div>
+             <table>
+            <tr>
+                <th>Date/Time</th>
+                <th>Temperature</th>
+                <th>Pulse</th>
+                <th>Blood Pressure</th>
+                <th>Oxygen Saturation</th>
+                <th>Heart Rate</th>
+                <th>Action</th>
+                
+            </tr>
+            <%patient.vital.forEach(function(vital){ %>
+            <tr>
+                <td><%=vital.createdAt%> </td>
+                <td><%=vital.temperature%> </td>
+                <td><%=vital.pulse%> </td>
+                <td><%=vital.bloodpressure%> </td>
+                <td><%=vital.oxygensat%> </td>
+                <td><%=vital.heartrate%> </td>
+                <td>
+                    <form action="/api/history/<%= vital._id %>" method="POST">
+                        <button style ="border: none;"
+                        ><i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            
+              <%})%>
+              
+           </table> 
+        </div>
+    </div>
+    
+</main>
+
+<script src="js/script.js"></script>
+<%- include("../partials/footer") %>
