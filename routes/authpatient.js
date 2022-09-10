@@ -3,7 +3,7 @@ const Patient    = require("../models/patients");
 const CryptoJS = require("crypto-js");
 const{ verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require("./verifyToken");
 
-router.get("/doctor/newpatient", verifyTokenAndAuthorization, (req, res)=>{
+router.get("/doctor/newpatient", (req, res)=>{
     res.status(500).json("addnewpatient")
 });
 

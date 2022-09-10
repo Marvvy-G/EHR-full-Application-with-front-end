@@ -25,9 +25,10 @@
     <%patients.forEach(function(patient){%>
     <tr>
       <td>
-        <a href="/api/history/nurse/showpatients/<%= patient._id %>">
+        <a style="text-decoration: none;" href="/api/history/nurse/showpatients/<%= patient._id %>">
+          <i class="bi bi-plus-square-fill"></i> 
+     
           <%=patient.name%>
-        </a>
       </td>
       <td><%=patient.id%></td> 
       <td><%=patient.age%></td> 

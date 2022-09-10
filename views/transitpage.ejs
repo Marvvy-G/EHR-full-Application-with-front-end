@@ -1,34 +1,40 @@
-<%- include('partials/header') %>
-
-<div class="main-bellsehr">
-<a href="/home">HOME</a>
-<a href="/patient">Patient</a>
-<a href="/doctor">Doctor</a>
-    <div class="side-nav">
-        <ul style="color: brown;">
-            <li><a href="">Register New Patient</a></li>
-            <li><a>Reception</a></li>
-            <li><a href="/api/pharmacy/showpatients">Pharmacy</a></li>
-            <li><a href="/api/doctor/showpatients">Doctor</a></li>
-            <li><a>Laboratory</a></li>
-            <li><a href="/api/history/show/showpatients">Nurse</a></li>
-        </ul>
-
-    </div>
-
-    <div class="jumbotron">
+<%- include('partials/header') %>    
+    <div class="h-100 p-5 text-white bg-dark rounded-3">
         <h1>Cheris Good Health</h1>
-
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem molestiae cupiditate modi dolores corporis saepe est maxime, tempora dolorum ullam, porro exercitationem minima facere. Atque quidem culpa quasi quia cupiditate.</p>
+        <button class="btn btn-outline-light" type="button">Read More</button>   
     </div>
-
-    <div class="img-block">
-        <img class="grid" src="pharmacy.png" alt="pharmacy">
-        <img class="grid" src="schedule.png" alt="schedule">
-        <img class="grid" src="Nurse.png" alt="nurse">
-        <img class="grid" src="Laboratory.png" alt="lab">
-    </div>
+    <section class="popular container" id="popular">
+       
+        <div class="box-container">
+            <div class="box">
+                <span class="price"> Drugs</span>
+                <img src="https://images.pexels.com/photos/5910953/pexels-photo-5910953.jpeg?auto=compress&cs=tinysrgb&w=600" alt="pharmacy">
+                <h3>Pharmacy</h3>
+                
+                <a href="/api/pharmacy/showpatients" class="btn btn-warning"> Go in</a>
+            </div>
+            <div class="box">
+                <span class="price"> Diagnosis </span>
+                <img src="https://images.pexels.com/photos/287227/pexels-photo-287227.jpeg?auto=compress&cs=tinysrgb&w=600" alt="doctor">
+                <h3>Doctor</h3>
+                <a href="/api/doctor/showpatients" class="btn btn-warning"> Go in</a>
+            </div>
+            <div class="box">
+                <span class="price"> Tests </span>
+                <img src="https://images.pexels.com/photos/3938023/pexels-photo-3938023.jpeg?auto=compress&cs=tinysrgb&w=600" alt="lab">
+                <h3>Laboratory</h3>
+                <a href="/api/lab/showpatients" class="btn btn-warning"> Go in</a>
+            </div>
+            <div class="box">
+                <span class="price"> Check ups</span>
+                <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600" alt="nurse">
+                <h3>Nurse</h3>
+                <a href="/api/history/show/showpatients" class="btn btn-warning"> Go in</a>
+            </div>
+                </div>
+    </section>
    
-    
 
 </div>
 

@@ -1,19 +1,10 @@
 <%- include("../partials/header") %>
 <!-- sidenav -->
+<%- include("../partials/sidenav/nursesidenav") %>
 
 
-<div class="mt-5 pt-3 container">
+<main class="mt-5 pt-3">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 fw-bold fs-3">DashBoard</div>
-            <div>
-                <ul>
-                    <li><a href="/api/history/show/showpatients">Database</a></li>
-                    <li><a href="/api/history/nurse/<%= patient._id %>">Add Vital</a></li>
-                    <li><a href="">Administer Medication</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -36,7 +27,6 @@
                 </div>
             </div>
         </div>  
-    </div>
     </div>
     
     <div class="container">

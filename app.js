@@ -18,6 +18,7 @@ const
 express    = require ("express"),
 app        = express(),
 bodyParser = require("body-parser"),
+flash      = require("connect-flash"),
 mongoose   = require("mongoose"),
 methodOverride = require("method-override");
 dotenv     = require("dotenv")

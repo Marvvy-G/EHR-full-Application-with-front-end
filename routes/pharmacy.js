@@ -5,7 +5,7 @@ Patient = require("../models/patients")
 const{ 
     verifyToken,
     verifyTokenAndAuthorization, 
-    verifyTokenAndAdmin } 
+     verifyTokenAndAdmin } 
     = require("./verifyToken");
 
 router.get("/", function(req, res){
