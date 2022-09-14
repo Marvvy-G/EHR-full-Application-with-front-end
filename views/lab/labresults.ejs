@@ -1,0 +1,63 @@
+<%- include("../partials/header") %>
+<!-- sidenav -->
+
+<div class="mt-5 pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 fw-bold fs-3">DashBoard</div>
+        </div>
+       
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Charts
+                    </div>
+                    <div class="card-body">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Analytics
+                    </div>
+                    <div class="card-body">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="header mt-3">
+            <h2 class="patient"><%=lab.patientId%></h2> 
+         </div>
+         <table>
+            <tr>
+              <th>Test</th>
+              <th>Test Result</th>
+              <th>Price</th>
+              <th>patient Id</th>
+              <th>Order Number</th>
+            </tr>
+          
+            <%lab.forEach(function(labs){%>
+            <tr>
+              <td><%=lab.test%></td>
+              <td><%=lab.testResult%></td> 
+              <td><%=lab.price%></td> 
+              <td><%=lab.patientId%></td>
+              <td><%=lab.labOrders%></td>  
+              <tr>
+              <% }); %>
+          </table>
+        <a href="/api/doctor/showpatients">back</a>
+</main>
+
+<script src="js/script.js"></script>
+<%- include("../partials/footer") %>

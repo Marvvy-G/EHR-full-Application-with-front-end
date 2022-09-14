@@ -4,7 +4,7 @@ const CryptoJS = require("crypto-js");
 const{ verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require("./verifyToken");
 
 router.get("/doctor/newpatient", (req, res)=>{
-    res.status(500).json("addnewpatient")
+    res.render("doc/addnewpatient")
 });
 
 //ADD NEW PATIENT
@@ -29,7 +29,7 @@ router.post("/doctor/showpatients", async (req, res)=>{
     });
     try{
         const savedPatient = await newPatient.save();
-        res.status(200).json(savedPatient)
+        res.redirect("/api/doctor/showpatients")
         console.log(savedPatient)
        }
         catch(err)

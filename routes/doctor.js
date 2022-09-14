@@ -1,6 +1,4 @@
 const router = require("express").Router();
-const{ verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } 
-        = require("./verifyToken");
    
 const
 products = require("../models/products"),
@@ -29,14 +27,6 @@ router.get("/showpatients", async (req, res) => {
 //   }
 // })
 
-router.get("/findlab/:patientId", async (req, res) => {
-  try{
-      const lab = await lab.find({patientId: req.params.patientId});
-      res.render("labresults");
-  } catch(err){
-      res.status(200).json(err)
-  }
-});
 
 router.get("/showpatients/:id", function(req, res){
   Patient.findById(req.params.id).populate("visit vital lab").exec(function(err, patient){

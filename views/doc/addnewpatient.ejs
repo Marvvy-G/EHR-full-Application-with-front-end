@@ -1,0 +1,135 @@
+<%- include("../partials/header") %>
+
+<div class="mt-5 pt-3">
+     <div class="row">
+        <h1 style="text-align: center;">
+            Register New Patient
+        </h1>
+
+        <div style="width: 30%; margin: 30px auto; ">
+            <!-- display errors -->
+            <form action="/api/authpatient/doctor/showpatients" method="POST">
+                <div class="form-group">
+                    <label class="form-label" for="photo"> Photo </label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="photo" 
+                    placeholder="photo" 
+                    value="<%= typeof photo != 'undefined' ? photo: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="name"> Name </label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="name" 
+                    placeholder="name" 
+                    value="<%= typeof name != 'undefined' ? name: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="age">Age</label>
+                    <input 
+                    class="form-control" 
+                    type="number" 
+                    name="age" 
+                    placeholder="age" 
+                    value="<%= typeof age != 'undefined' ? age: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="id">Patient ID</label>
+                    <input 
+                    class="form-control" 
+                    type="number" 
+                    name="id" 
+                    placeholder="Patient ID" 
+                    value="<%= typeof id != 'undefined' ? id: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="address">Address</label>
+                    <input 
+                    class="form-control" 
+                    type="address" 
+                    name="address" 
+                    placeholder="address" 
+                    value="<%= typeof address != 'undefined' ? address: ''%>"
+                    >
+                </div>
+               
+                <hr>
+                <h5>Other Information</h5>
+                <div class="form-group">
+                    <label class="form-label" for="number">Phone Number</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="number" 
+                    placeholder="Phone Number"
+                    value="<%= typeof number != 'undefined' ? number: ''%>"
+                >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="lastvisit">Last visit</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="lastvisit" 
+                    placeholder="lastvisit" 
+                    value="<%= typeof lastvisit != 'undefined' ? lastvisit: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="gender">Gender</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="gender" 
+                    placeholder="gender"
+                    value="<%= typeof gender != 'undefined' ? gender: ''%>"
+                     >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="bloodgroup">Bloodgroup</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="bloodgroup" 
+                    placeholder="bloodgroup" 
+                    value="<%= typeof bloodgroup != 'undefined' ? bloodgroup: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="genotype">Genotype</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="genotype" 
+                    placeholder="genotype" 
+                    value="<%= typeof genotype != 'undefined' ? genotype: ''%>"
+                    >
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="underlyingillness">Underlying - illness</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="underlyingillness" 
+                    placeholder="underlyingillness" 
+                    value="<%= typeof underlyingillness != 'undefined' ? underlyingillness: ''%>"
+                    >
+                </div>
+                <br>
+               <div class="form-group" >
+                    <button class="btn btn-lg btn-danger btn-block">Submit</button>
+               </div>
+                </form>
+                <a href="/api/doctor/showpatients">Back</a>
+        </div>
+     </div>
+</div>
+
+<%- include("../partials/footer") %>   

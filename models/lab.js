@@ -5,7 +5,7 @@ const labSchema = new mongoose.Schema({
     testResult: String,
     price: Number,
     patientId: {
-        type: Number,
+        type: String,
         required: true
     },
     labOrders: [

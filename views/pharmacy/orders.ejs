@@ -1,0 +1,51 @@
+<%- include("../partials/header") %>
+<!-- sidenav -->
+<%- include("../partials/sidenav/pharmacysidenav") %>
+
+
+<main class="mt-5 pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 fw-bold fs-3">Patient Prescription history</div>
+                <a class="btn btn-primary  col-md-3 fs-6" href="/api/products/pharmacy">Drug DataBase</a>
+        </div>
+        <form class="d-flex ms-auto mt-3">
+          <div class="input-group my-3 my-lg-0 ">
+              <input type="text" class="form-control" placeholder="Search patient id/matric number" aria-label="search patient id" aria-describedby="button-addon2">
+              <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search-heart"></i></button>
+           </div>
+      </form>
+  <table>
+      <tr>
+        <th>Price</th>
+        <th>Staff Id</th>
+        <th>Patient Id</th>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Quantiy</th>
+        <th>Dosage type</th>
+        <th>Dosage quantity</th>
+        <th>Status</th>
+      </tr>
+    
+      <%Order.forEach(function(orders){%>
+      <tr>
+        <td><%=orders.amount%></td>
+        <td><%=orders.userId%></td> 
+        <td><%=orders.patientId%></td> 
+        <td><%=orders.products%></td>
+        <td><%=orders.products.productName%></td>  
+        <td><%=orders.products.quantity%></td> 
+        <td><%=orders.products.dosage_type%></td> 
+        <td><%=orders.products.dose_quantity%></td> 
+        <td><i class="bi bi-pen">pending</i></td> 
+        <tr>
+          <% }); %>
+        </table>
+      </div>
+  </main>
+  
+
+
+<script src="js/script.js"></script>
+<%- include("../partials/footer") %>

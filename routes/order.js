@@ -58,7 +58,7 @@ router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //Get patient prescription
-router.get("/findpatient/:patientId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/findpatient/:patientId", async (req, res) => {
     try{
         const orders = await Order.find({patientId: req.params.patientId});
         res.status(500).json(orders);

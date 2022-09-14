@@ -15,7 +15,7 @@
                         Doctors Note</div>
                     <div class="card-body">
                       <h5 class="card-title">TEST</h5>
-                      <p class="card-text"><%=laborders.testtype%></p>
+                      <p class="card-text"></p>
                     </div>
                   </div>
             </div>
@@ -47,7 +47,7 @@
         </div>  
         <div class="container-fluid">
             <div class="header mt-3">
-                <h2 class="patient">patient.name</h2> 
+                <h2 class="patient">Test History</h2> 
              </div>
              <table>
              <tr>
@@ -57,18 +57,18 @@
                 <th>Price</th>
               </tr>
             
-              <%laborders.forEach(function(laborder){%>
+              <%labOrder.forEach(function(laborders){%>
               <tr>
                 <td>
-                   <%=laborders.testtype%>
+                   <%=laborders.amount%>
                 </td>
                 <td>
                    <%=laborders.userId%>
                 </td>
                 <td>
-                   <%=laborders.labProducts.quantity%>
+                   <%=labProducts.quantity%>
                 </td>
-                <td><%=laborders.amount%></td> 
+                <td><%=labProducts.labProductId%></td> 
                 <tr>
                 <% }); %>
             </table>

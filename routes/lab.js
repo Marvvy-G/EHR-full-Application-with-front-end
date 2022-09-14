@@ -1,16 +1,10 @@
 const router = require("express").Router();
 const res = require("express/lib/response");
-const Order = require("../models/order");
 const labOrder = require("../models/labOrders");
 const 
-order = require("../models/order"),
 Patient = require("../models/patients"),
 lab = require("../models/lab");
-const{ 
-    verifyToken,
-    verifyTokenAndAuthorization, 
-    verifyTokenAndAdmin } 
-    = require("./verifyToken");
+
 
 router.get("/showpatients", function(req, res){
     //get patients for pharmacist
@@ -35,7 +29,7 @@ router.get("/showpatients/:id/",function(req, res){
 router.get("/find/:patientId", async (req, res) => {
     try{
         const laborders = await labOrder.find({patientId: req.params.patientId});
-        res.render("lab/orders", {laborders: laborders})
+        res.render("lab/orders", {labOrder: laborders})
         console.log(laborders)
     } catch(err){
         res.status(500).json(err)
@@ -43,13 +37,16 @@ router.get("/find/:patientId", async (req, res) => {
 });
 
 //Get patient lab results
-router.get("/findpatient/:patientId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/findlabresult/:patientId", async (req, res) => {
     try{
-        const lab = await lab.find({patientId: req.params.patientId});
-        res.status(500).json(lab);
+        const labs = await lab.find({patientId: req.params.patientId});
+        res.render("lab/labresults", {lab: labs});
     } catch(err){
-        res.status(200).json(err)
+        console.log(err)
     }
 });
+
+// create lab results
+
 
 module.exports = router

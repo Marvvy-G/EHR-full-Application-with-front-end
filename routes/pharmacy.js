@@ -1,12 +1,7 @@
 const router = require("express").Router();
 const Order = require("../models/order");
 const
-Patient = require("../models/patients")
-const{ 
-    verifyToken,
-    verifyTokenAndAuthorization, 
-     verifyTokenAndAdmin } 
-    = require("./verifyToken");
+Patient = require("../models/patients");
 
 router.get("/", function(req, res){
     res.render("pharmacy/pharmacy")
@@ -32,16 +27,17 @@ router.get("/showpatients/:id", function(req, res){
         } 
     });
 });
-
-
 //Get patient prescription
-router.get("/findpatient/:patientId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/findpatient/:patientId", async (req, res) => {
     try{
         const orders = await Order.find({patientId: req.params.patientId});
-        res.status(500).json(orders);
+        
+        res.render("pharmacy/orders",{ Order : orders} )
     } catch(err){
         res.status(200).json(err)
     }
 });
 
-module.exports = router
+
+
+module.exports = router        
