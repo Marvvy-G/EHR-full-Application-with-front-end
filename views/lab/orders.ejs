@@ -51,10 +51,10 @@
              </div>
              <table>
              <tr>
-                <th>Test Type</th>
+                <th>Price</th>
                 <th>userId</th>
                 <th>Quantity</th>
-                <th>Price</th>
+                <th>Test Type Id</th>
               </tr>
             
               <%labOrder.forEach(function(laborders){%>
@@ -66,9 +66,9 @@
                    <%=laborders.userId%>
                 </td>
                 <td>
-                   <%=labProducts.quantity%>
+                   <%=laborders.quantity%>
                 </td>
-                <td><%=labProducts.labProductId%></td> 
+                <td><%=laborders.labProductId%></td> 
                 <tr>
                 <% }); %>
             </table>
