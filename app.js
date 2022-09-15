@@ -64,6 +64,9 @@ app.use("/api/lab", labRoute);
 app.get("/", function(req, res){
     res.render("home")
 });
+app.get("/transitpage", function(req, res){
+    res.render("transitpage")
+});
 
 const port = process.env.PORT || 4000 ;
 
