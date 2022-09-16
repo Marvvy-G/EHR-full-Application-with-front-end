@@ -105,6 +105,12 @@
     float: left;
     margin-left: 270px;
   }
+
+  .profile-img{
+    height: 60px; 
+    width: 60px; 
+    border-radius: 50%;
+  }
   
   .srch{
     float: left;

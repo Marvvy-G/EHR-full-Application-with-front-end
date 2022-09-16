@@ -3,14 +3,20 @@ const Patient    = require("../models/patients");
 const CryptoJS = require("crypto-js");
 const{ verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = require("./verifyToken");
 
+const multer = require('multer');
+
+const { upload } = require('../util/cloudinaryConfig');
+
 router.get("/doctor/newpatient", (req, res)=>{
     res.render("doc/addnewpatient")
 });
 
 //ADD NEW PATIENT
-router.post("/doctor/showpatients", async (req, res)=>{
+router.post("/doctor/showpatients", 
+            upload.single('photo'), 
+            async (req, res)=>{
     const newPatient = new Patient({
-        photo : req.body.photo,
+         photo : req.file.path,
          name  : req.body.name,
          id    : req.body.id,
          age   : req.body.age,

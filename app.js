@@ -1,3 +1,17 @@
+//technologies
+const 
+express    = require ("express"),
+app        = express(),
+bodyParser = require("body-parser"),
+cookieParser= require("cookie-parser"),
+session    = require("express-session")
+flash      = require("connect-flash"),
+mongoose   = require("mongoose"),
+methodOverride = require("method-override");
+dotenv     = require("dotenv")
+
+dotenv.config(); 
+
 //Routes
 const 
 userRoute        = require("./routes/user"),
@@ -13,19 +27,7 @@ historyRoute     = require("./routes/history"),
 labProductsRoute = require("./routes/labProducts"),
 labOrdersRoute   = require("./routes/labOrders"),
 labRoute         = require("./routes/lab")
-//technologies
-const 
-express    = require ("express"),
-app        = express(),
-bodyParser = require("body-parser"),
-cookieParser= require("cookie-parser"),
-session    = require("express-session")
-flash      = require("connect-flash"),
-mongoose   = require("mongoose"),
-methodOverride = require("method-override");
-dotenv     = require("dotenv")
 
-dotenv.config(); 
 
 //Database connection
 //change database and deploy
